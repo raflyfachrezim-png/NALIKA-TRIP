@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nalika Trip - Jelajahi Keindahan Alam</title>
+    <style>
+        /* --- RESET & BASIC STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            background-color: #1b4332;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a:hover {
+            color: #52b788;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        .btn {
+            background-color: #52b788;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #40916c;
+        }
+
+        /* --- SECTION GENERAL --- */
+        section {
+            padding: 80px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #1b4332;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: #52b788;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- PILIHAN TRIP --- */
+        .trip-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .trip-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .trip-card:hover {
+            transform: translateY(-5px);
+        }
+        .trip-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .trip-info {
+            padding: 20px;
+        }
+        .trip-info h3 {
+            margin-bottom: 10px;
+            color: #1b4332;
+        }
+        .trip-info p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .btn-tc {
+            background: none;
+            border: 1px solid #52b788;
+            color: #52b788;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .btn-tc:hover {
+            background: #52b788;
+            color: white;
+        }
+
+        /* --- GALERI FOTO --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            height: 200px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- FORM REGISTRASI --- */
+        .form-section {
+            background-color: #1b4332;
+            color: white;
+            max-width: 100%;
+            width: 100%;
+        }
+        .form-section h2 {
+            color: white;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container .btn {
+            width: 100%;
+        }
+
+        /* --- MODAL FOR T&C --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #112a1f;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 20px; flex-direction: column; gap: 10px; }
+            section { padding: 50px 20px; }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">NALIKA TRIP</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#trip">Pilihan Trip</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+            <li><a href="#daftar">Daftar</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="hero" id="home">
+        <h1>Bosan di Rumah? Alam Menunggumu!</h1>
+        <p>Nalika Trip siap nemenin langkah kaki lu buat ngeksplor gunung-gunung kece dan keindahan alam Indonesia dengan aman, seru, dan pastinya dapet temen baru.</p>
+        <a href="#daftar" class="btn">Gas Daftar Sekarang!</a>
+    </div>
+
+    <!-- PILIHAN TRIP -->
+    <section id="trip">
+        <h2>Pilihan Trip Populer</h2>
+        <div class="trip-container">
+            
+            <!-- Trip 1 -->
+            <div class="trip-card">
+                <img src="https://images.unsplash.com/photo-1600298882283-40b4dcb8b211?auto=format&fit=crop&w=500&q=80" alt="Kawah Ratu" class="trip-img">
+                <div class="trip-info">
+                    <h3>Kawah Ratu</h3>
+                    <p>Merasakan sensasi petualangan menyusuri sungai dan melihat aktifitas kawah vulkanik aktif yang eksotis di kaki Gunung Salak.</p>
+                    <button class="btn-tc" onclick="openModal('tc-kawah')">Lihat Syarat & Ketentuan</button>
+                </div>
+            </div>
+
+            <!-- Trip 2 -->
+            <div class="trip-card">
+                <img src="https://images.unsplash.com/photo-1589392682842-d550f589d852?auto=format&fit=crop&w=500&q=80" alt="Gunung Papandayan" class="trip-img">
+                <div class="trip-info">
+                    <h3>Gunung Papandayan</h3>
+                    <p>Gunung ramah pemula dengan bonus komplit: padang edelweiss Tegal Alun, hutan mati yang ikonik, dan kolam air panas alami.</p>
+                    <button class="btn-tc" onclick="openModal('tc-papandayan')">Lihat Syarat & Ketentuan</button>
+                </div>
+            </div>
+
+            <!-- Trip 3 -->
+            <div class="trip-card">
+                <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=500&q=80" alt="Gunung Gede" class="trip-img">
+                <div class="trip-info">
+                    <h3>Gunung Gede</h3>
+                    <p>Uji nyali dan fisik lu di salah satu gunung paling favorit di Jawa Barat. Nikmati indahnya Suryakencana dan sunrise di puncak.</p>
+                    <button class="btn-tc" onclick="openModal('tc-gede')">Lihat Syarat & Ketentuan</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALERI FOTO -->
+    <section id="gallery" style="background-color: #e9ecef;">
+        <h2>Galeri Dokumentasi</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=400&q=80" alt="Gallery 1"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=400&q=80" alt="Gallery 2"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=400&q=80" alt="Gallery 3"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Gallery 4"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=400&q=80" alt="Gallery 5"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=400&q=80" alt="Gallery 6"></div>
+        </div>
+    </section>
+
+    <!-- FORM DAFTAR -->
+    <section id="daftar" class="form-section">
+        <h2>Formulir Pendaftaran Trip</h2>
+        <div class="form-container">
+            <form action="#" method="POST" onsubmit="alert('Data pendaftaran lu udah masuk! Admin Nalika Trip bakal hubungin via WhatsApp.'); return false;">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama lu" required>
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">Nomor WhatsApp</label>
+                    <input type="tel" id="whatsapp" placeholder="Contoh: 08123456789" required>
+                </div>
+                <div class="form-group">
+                    <label for="pilihan-trip">Pilih Destinasi</label>
+                    <select id="pilihan-trip" required>
+                        <option value="">-- Pilih Trip Lu --</option>
+                        <option value="kawah-ratu">Kawah Ratu</option>
+                        <option value="papandayan">Gunung Papandayan</option>
+                        <option value="gede">Gunung Gede</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Kirim Pendaftaran</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Nalika Trip. All Rights Reserved. Made with ❤️ buat petualang sejati.</p>
+    </footer>
+
+    <!-- MODAL BOXES FOR T&C (Pop-up Tersembunyi) -->
+    <div id="tc-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-body-content">
+                <!-- Konten dinamis bakal masuk sini via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT BUAT MODAL T&C -->
+    <script>
+        const tcData = {
+            'tc-kawah': `
+                <h3>T&C Kawah Ratu</h3><br>
+                <p>1. Peserta dalam kondisi sehat jasmani & rohani.</p>
+                <p>2. Wajib menggunakan sepatu trekking/sandal gunung (no slip).</p>
+                <p>3. Membawa jas hujan pribadi dan baju ganti.</p>
+                <p>4. Dilarang merusak ekosistem atau membuang sampah sembarangan.</p>
+            `,
+            'tc-papandayan': `
+                <h3>T&C Gunung Papandayan</h3><br>
+                <p>1. Terbuka untuk pemula, namun persiapan fisik tetap dianjurkan.</p>
+                <p>2. Wajib membawa jaket tebal karena suhu Hutan Mati bisa sangat dingin.</p>
+                <p>3. Dilarang memetik bunga Edelweiss dalam bentuk atau alasan apapun.</p>
+                <p>4. Down Payment (DP) yang sudah dibayarkan tidak dapat hangus melainkan bisa diganti orang.</p>
+            `,
+            'tc-gede': `
+                <h3>T&C Gunung Gede</h3><br>
+                <p>1. Kuota terbatas disesuaikan dengan e-Simaksi Taman Nasional.</p>
+                <p>2. Wajib menyertakan Surat Keterangan Sehat H-3 keberangkatan.</p>
+                <p>3. Membawa perlengkapan camp standar (dijelaskan di grup koordinasi).</p>
+                <p>4. Pembatalan H-7 trip, uang hangus kecuali ada pengganti peserta.</p>
+            `
+        };
+
+        function openModal(tripId) {
+            document.getElementById('modal-body-content').innerHTML = tcData[tripId];
+            document.getElementById('tc-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('tc-modal').style.display = 'none';
+        }
+
+        // nutup modal kalau ngeklik area luar kotak putih
+        window.onclick = function(event) {
+            const modal = document.getElementById('tc-modal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
