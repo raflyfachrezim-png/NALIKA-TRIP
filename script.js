@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4. Render Detail Trip Kawah Ratu
     const kr = NALIKA_DATABASE.trips.kawahRatu;
     document.getElementById("kr-title").innerHTML = `One Day Trip <br><span class="text-amber-500">${kr.title}</span>`;
-    document.getElementById("kr-price").innerText = `Rp${kr.price} / Pax`;
+    document.getElementById("kr-price").innerText = `{kr.price} / Pax`;
     document.getElementById("kr-schedule").innerText = kr.schedule;
     document.getElementById("kr-mepo").innerText = kr.meetingPoint;
     document.getElementById("kr-desc").innerText = kr.desc;
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 5. Render Detail Trip Papandayan
     const pp = NALIKA_DATABASE.trips.papandayan;
     document.getElementById("pp-title").innerHTML = `One Day Trip <br><span class="text-amber-500">${pp.title}</span>`;
-    document.getElementById("pp-price").innerText = `Rp${pp.price} / Pax`;
+    document.getElementById("pp-price").innerText = `{pp.price} / Pax`;
     document.getElementById("pp-schedule").innerText = pp.schedule;
     document.getElementById("pp-mepo").innerText = pp.meetingPoint;
     document.getElementById("pp-desc").innerText = pp.desc;
