@@ -17,18 +17,12 @@ const NALIKA_DATABASE = {
     // Foto Galeri
     gallery: [
         {
-            tag: "@NALIKATRIP",
-            caption: "Menembus derasnya hujan, Menuju Kawah Ratu.",
             image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=600&q=80"
         },
         {
-            tag: "@NALIKATRIP",
-            caption: "Menjelajah Hutan Mati Papandayan",
             image: "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?auto=format&fit=crop&w=600&q=80"
         },
         {
-            tag: "@NALIKATRIP",
-            caption: "Sunset Indah di Gunung Gede",
             image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80"
         }
     ],
@@ -40,7 +34,7 @@ const NALIKA_DATABASE = {
             type: "One Day Trip",
             price: "Start From 130k",
             meetingPoint: "Indomaret Terminal Cidahu",
-            schedule: "Weekend: 12, 19, 26 | Weekday: 13, 21, 29, 30",
+            schedule: "Weekend|Weekday",
             desc: "Kawah aktif sisa letusan Gunung Salak yang terakhir terjadi pada tahun 1938. Terletak di kawasan Taman Nasional Gunung Halimun Salak (TNGHS) di perbatasan Bogor dan Sukabumi, kawah seluas 2 hektare ini menjadi destinasi hiking populer karena keunikan uap panas dan aliran air belerangnya.",
             image: "https://images.unsplash.com/photo-1544085311-11a028465b03?auto=format&fit=crop&w=600&q=80",
             waLink: "https://wa.me/628212240439?text=Halo%20Nalika%20Trip,%20saya%20mau%20register%20untuk%20Trip%20Kawah%20Ratu",
@@ -52,7 +46,7 @@ const NALIKA_DATABASE = {
             type: "One Day Trip",
             price: "Start From 280k",
             meetingPoint: "Sukabumi (Exit Tol Parungkuda), Bogor (Ciawi), Jakarta (Cawang UKI)",
-            schedule: "25 - 26 Juli 2026",
+            schedule: "Weekend|Weekday",
             desc: "Gunung Papandayan adalah gunung api aktif setinggi 2.665 mdpl di Cisurupan, Garut, Jawa Barat. Terkenal ramah untuk pemula, daya tarik utamanya meliputi Kawah Mas yang eksotis, area camping Pondok Salada, hamparan bunga edelweiss di Tegal Alun, serta lanskap dramatis Hutan Mati.",
             image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
             waLink: "https://wa.me/628212240439?text=Halo%20Nalika%20Trip,%20saya%20mau%20register%20untuk%20Trip%20Gunung%20Papandayan",
