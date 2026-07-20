@@ -27,14 +27,14 @@ function toggleMobileMenu() {
 }
 
 function alertGede() {
-    alert("Trip Gunung Gede Belum Tersedia saat ini ya, Cuy! Pantengin terus update selanjutnya di sosmed Nalika Trip!");
+    alert("Trip Gunung Gede Belum Tersedia saat ini ya, Bapee! Pantengin terus update selanjutnya di sosmed Nalika Trip!");
 }
 
 // Render Data dari database.js pas web dimuat
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Render Links Sosmed di Footer
     const footLinks = document.querySelectorAll(".footer-social-link");
-    if(footLinks.length >= 3) {
+    if (footLinks.length >= 3) {
         footLinks[0].href = NALIKA_DATABASE.socials.whatsapp;
         footLinks[1].href = NALIKA_DATABASE.socials.instagram;
         footLinks[2].href = NALIKA_DATABASE.socials.tiktok;
@@ -46,22 +46,24 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("about-desc2").innerText = NALIKA_DATABASE.about.desc2;
     document.getElementById("about-img").src = NALIKA_DATABASE.about.image;
 
-    // 3. Render Galeri Foto
+    // 3. Render Galeri Foto (8 Foto)
     const galleryContainer = document.getElementById("gallery-grid");
-    galleryContainer.innerHTML = NALIKA_DATABASE.gallery.map(item => `
-        <div class="group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-800 aspect-square">
-            <img src="${item.image}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri">
-            <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                <p class="text-xs text-amber-500 font-semibold">${item.tag}</p>
-                <p class="text-sm font-medium">${item.caption}</p>
+    if (galleryContainer) {
+        galleryContainer.innerHTML = NALIKA_DATABASE.gallery.map(item => `
+            <div class="group relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-800 aspect-square">
+                <img src="${item.image}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Galeri">
+                <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <p class="text-xs text-amber-500 font-semibold">${item.tag}</p>
+                    <p class="text-sm font-medium">${item.caption}</p>
+                </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
+    }
 
     // 4. Render Detail Trip Kawah Ratu
     const kr = NALIKA_DATABASE.trips.kawahRatu;
     document.getElementById("kr-title").innerHTML = `One Day Trip <br><span class="text-amber-500">${kr.title}</span>`;
-    document.getElementById("kr-price").innerText = `{kr.price} / Pax`;
+    document.getElementById("kr-price").innerText = `${kr.price} / Pax`;
     document.getElementById("kr-schedule").innerText = kr.schedule;
     document.getElementById("kr-mepo").innerText = kr.meetingPoint;
     document.getElementById("kr-desc").innerText = kr.desc;
@@ -72,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 5. Render Detail Trip Papandayan
     const pp = NALIKA_DATABASE.trips.papandayan;
     document.getElementById("pp-title").innerHTML = `One Day Trip <br><span class="text-amber-500">${pp.title}</span>`;
-    document.getElementById("pp-price").innerText = `{pp.price} / Pax`;
+    document.getElementById("pp-price").innerText = `${pp.price} / Pax`;
     document.getElementById("pp-schedule").innerText = pp.schedule;
     document.getElementById("pp-mepo").innerText = pp.meetingPoint;
     document.getElementById("pp-desc").innerText = pp.desc;
