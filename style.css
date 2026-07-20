@@ -22,7 +22,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Tombol Outline (Bordiran Amber) untuk Pilihan Trip di Halaman About */
+/* Tombol Outline */
 .btn-pop-outline {
     background-color: transparent;
     color: #f59e0b;
@@ -45,7 +45,7 @@
     transform: translateY(1px) scale(0.97);
 }
 
-/* Custom Hover Effects untuk Kartu Trip */
+/* Custom Hover Effects Kartu Trip */
 .btn-card {
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -55,7 +55,26 @@
     box-shadow: 0 15px 30px rgba(4, 120, 87, 0.25);
 }
 
-/* Kustomisasi Scrollbar Nuansa Hutan */
+/* Animasi Lightbox Modal Foto */
+#image-modal:not(.hidden) {
+    animation: fadeIn 0.25s ease-out forwards;
+}
+
+#image-modal img {
+    animation: zoomIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Scrollbar Nuansa Hutan */
 ::-webkit-scrollbar {
     width: 8px;
 }
