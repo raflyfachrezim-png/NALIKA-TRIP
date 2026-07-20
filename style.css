@@ -1,36 +1,47 @@
-/* Efek Tombol Interaktif Ngambang & Membal */
+/* Efek Tombol Interaktif Ngambang & Membal (Emerald Elegance) */
 .btn-pop {
-    background-color: #10b981; /* Hijau Emerald */
-    color: #ffffff;
+    background-color: #f59e0b; /* Accent Warna Amber Gold */
+    color: #022c22; /* Teks Hijau Gelap */
     border: none;
-    border-radius: 6px;
-    padding: 10px 20px;
+    border-radius: 9999px;
+    padding: 12px 28px;
+    font-weight: 800;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn-pop:hover {
     transform: translateY(-4px) scale(1.03);
-    background-color: #059669; /* Hijau agak gelap pas di-hover */
-    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); /* Glow efek hijau */
+    background-color: #fbbf24;
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35); /* Glow Efek Emas */
 }
 
 .btn-pop:active {
     transform: translateY(1px) scale(0.97);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Kustomisasi Scrollbar */
+/* Custom Hover Effects untuk Kartu Trip */
+.btn-card {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(4, 120, 87, 0.25);
+}
+
+/* Kustomisasi Scrollbar Nuansa Hutan */
 ::-webkit-scrollbar {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #0f172a; /* Tetap gelap biar kontras */
+    background: #022c22; /* Deep Forest Dark Green */
 }
 ::-webkit-scrollbar-thumb {
-    background: #047857; /* Hijau tua untuk scrollbar default */
+    background: #065f46; /* Hijau Lumut / Forest Medium */
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #10b981; /* Hijau terang pas scrollbar di-hover */
+    background: #10b981; /* Emerald Terang saat di-hover */
 }
