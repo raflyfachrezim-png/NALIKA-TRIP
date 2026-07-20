@@ -11,7 +11,7 @@ const NALIKA_DATABASE = {
         title: "Tentang Nalika",
         desc1: "Nalika Trip menghadirkan pengalaman wisata alam dan kegiatan edukatif yang seru, aman, dan penuh makna. Setiap perjalanan dirancang untuk menciptakan momen kebersamaan yang tak terlupakan.",
         desc2: "Didukung dokumentasi foto berkualitas dan video sinematik, setiap cerita akan tetap hidup bahkan setelah perjalanan berakhir.",
-        image: "images/galeri-10.jpg"
+        image: "images/galeri-1.jpg"
     },
 
     // Foto Galeri (Nama file tanpa spasi)
