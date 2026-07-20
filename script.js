@@ -1,4 +1,3 @@
-// Fungsi Navigasi Halaman SPA
 function showPage(pageId) {
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(sec => sec.classList.add('hidden'));
@@ -9,7 +8,6 @@ function showPage(pageId) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Tutup mobile menu
     const mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenu) mobileMenu.classList.add('hidden');
     const menuIcon = document.getElementById('menu-icon');
@@ -32,9 +30,8 @@ function alertGede() {
     alert("Trip Gunung Gede Belum Tersedia saat ini ya, Bapee! Pantengin terus update selanjutnya di sosmed Nalika Trip!");
 }
 
-// Render Data dari database.js pas web dimuat
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Render Links Sosmed di Footer
+    // 1. Social Links
     const footLinks = document.querySelectorAll(".footer-social-link");
     if (footLinks.length >= 3 && typeof NALIKA_DATABASE !== 'undefined') {
         footLinks[0].href = NALIKA_DATABASE.socials.whatsapp;
@@ -42,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         footLinks[2].href = NALIKA_DATABASE.socials.tiktok;
     }
 
-    // 2. Render Halaman About
+    // 2. About Section
     if (typeof NALIKA_DATABASE !== 'undefined' && NALIKA_DATABASE.about) {
         document.getElementById("about-title").innerText = NALIKA_DATABASE.about.title;
         document.getElementById("about-desc1").innerText = NALIKA_DATABASE.about.desc1;
@@ -50,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("about-img").src = NALIKA_DATABASE.about.image;
     }
 
-    // 3. Render Galeri Foto murni layout foto tanpa caption/tag
+    // 3. Gallery Grid
     const galleryContainer = document.getElementById("gallery-grid");
     if (galleryContainer && typeof NALIKA_DATABASE !== 'undefined' && NALIKA_DATABASE.gallery) {
         galleryContainer.innerHTML = NALIKA_DATABASE.gallery.map(item => `
@@ -60,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `).join('');
     }
 
-    // 4. Render Detail Trip Kawah Ratu
+    // 4. Kawah Ratu
     if (typeof NALIKA_DATABASE !== 'undefined' && NALIKA_DATABASE.trips && NALIKA_DATABASE.trips.kawahRatu) {
         const kr = NALIKA_DATABASE.trips.kawahRatu;
         document.getElementById("kr-title").innerHTML = `One Day Trip <br><span class="text-amber-500">${kr.title}</span>`;
@@ -73,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("kr-exclude").innerHTML = kr.excludes.map(e => `<li>${e}</li>`).join('');
     }
 
-    // 5. Render Detail Trip Papandayan
+    // 5. Papandayan
     if (typeof NALIKA_DATABASE !== 'undefined' && NALIKA_DATABASE.trips && NALIKA_DATABASE.trips.papandayan) {
         const pp = NALIKA_DATABASE.trips.papandayan;
         document.getElementById("pp-title").innerHTML = `One Day Trip <br><span class="text-amber-500">${pp.title}</span>`;
