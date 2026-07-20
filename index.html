@@ -35,6 +35,7 @@
 
     <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-6">
 
+        <!-- ================= HOME ================= -->
         <section id="page-home" class="page-section space-y-12">
             <div class="relative rounded-3xl overflow-hidden min-h-[450px] flex items-center justify-center text-center p-6 bg-cover bg-center border border-emerald-800/40 shadow-2xl" style="background-image: linear-gradient(rgba(2, 44, 34, 0.75), rgba(6, 78, 59, 0.85)), url('images/galeri-1.jpg');">
                 <div class="max-w-2xl space-y-6">
@@ -50,6 +51,7 @@
             </div>
         </section>
 
+        <!-- ================= ABOUT ================= -->
         <section id="page-about" class="page-section hidden space-y-8">
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div class="space-y-6">
@@ -71,10 +73,11 @@
             </div>
         </section>
 
+        <!-- ================= GALERI ================= -->
         <section id="page-galeri" class="page-section hidden space-y-8">
             <div class="text-center max-w-xl mx-auto space-y-4">
                 <h1 class="text-3xl font-bold text-white">Galeri</h1>
-                <p class="text-emerald-200/70">Beberapa momen seru tim Nalika Trip berpetualang.</p>
+                <p class="text-emerald-200/70">Klik foto untuk melihat ukuran penuh.</p>
             </div>
             
             <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
@@ -86,12 +89,14 @@
             </div>
         </section>
 
+        <!-- ================= PILIHAN TRIP ================= -->
         <section id="page-trip" class="page-section hidden space-y-8">
             <div class="text-center max-w-xl mx-auto space-y-4">
                 <h1 class="text-3xl font-bold text-white">Pilihan Trip</h1>
                 <p class="text-emerald-200/70">Pilih destinasi impianmu dan rasakan petualangan mendaki bersama kami.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Trip 1: Kawah Ratu -->
                 <div onclick="showPage('kawah-ratu')" class="btn-card cursor-pointer bg-emerald-900/40 rounded-3xl overflow-hidden border border-emerald-800/60 flex flex-col group hover:border-emerald-600 transition">
                     <div class="h-64 overflow-hidden relative">
                         <img src="images/galeri-5.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Kawah Ratu">
@@ -101,6 +106,7 @@
                         <span class="text-amber-400 text-sm font-semibold mt-4 block">Baca Selengkapnya →</span>
                     </div>
                 </div>
+                <!-- Trip 2: Gunung Gede -->
                 <div onclick="alertGede()" class="cursor-pointer bg-emerald-950/60 rounded-3xl overflow-hidden border border-emerald-900 flex flex-col group relative">
                     <div class="absolute inset-0 bg-emerald-950/85 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center text-center">
                         <i class="fa-solid fa-lock text-3xl text-amber-500 mb-2"></i>
@@ -109,6 +115,7 @@
                     </div>
                     <div class="h-64 overflow-hidden"><img src="images/galeri-10.jpg" class="w-full h-full object-cover" alt="Gunung Gede"></div>
                 </div>
+                <!-- Trip 3: Gunung Papandayan -->
                 <div onclick="showPage('papandayan')" class="btn-card cursor-pointer bg-emerald-900/40 rounded-3xl overflow-hidden border border-emerald-800/60 flex flex-col group hover:border-emerald-600 transition">
                     <div class="h-64 overflow-hidden relative">
                         <img src="images/galeri-14.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Papandayan">
@@ -121,6 +128,7 @@
             </div>
         </section>
 
+        <!-- ================= DETAIL KAWAH RATU ================= -->
         <section id="page-kawah-ratu" class="page-section hidden space-y-8">
             <button onclick="showPage('trip')" class="text-amber-400 font-semibold hover:underline"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
             <div class="grid md:grid-cols-2 gap-8">
@@ -141,6 +149,7 @@
             </div>
         </section>
 
+        <!-- ================= DETAIL PAPANDAYAN ================= -->
         <section id="page-papandayan" class="page-section hidden space-y-8">
             <button onclick="showPage('trip')" class="text-amber-400 font-semibold hover:underline"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
             <div class="grid md:grid-cols-2 gap-8">
@@ -161,6 +170,16 @@
             </div>
         </section>
 
+        <!-- ================= MODAL LIGHTBOX (POPUP FOTO) ================= -->
+        <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+            <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white text-3xl hover:text-amber-400 focus:outline-none z-10 transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="relative max-w-4xl max-h-[90vh] flex items-center justify-center">
+                <img id="modal-img" src="" alt="Preview Foto" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl border border-emerald-800/50">
+            </div>
+        </div>
+
     </main>
 
     <footer class="bg-emerald-950 border-t border-emerald-900 mt-12 py-6">
@@ -175,7 +194,7 @@
         </div>
     </footer>
 
-    <script src="database.js?v=3"></script>
-    <script src="script.js?v=3"></script>
+    <script src="database.js?v=4"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>
