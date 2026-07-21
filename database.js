@@ -55,7 +55,7 @@ const NALIKA_DATABASE = {
             meetingPoint: "Sukabumi (Exit Tol Parungkuda), Bogor (Ciawi), Jakarta (Cawang UKI)",
             schedule: "Weekend|Weekday",
             desc: "Gunung Papandayan adalah gunung api aktif setinggi 2.665 mdpl di Cisurupan, Garut, Jawa Barat. Terkenal ramah untuk pemula, daya tarik utamanya meliputi Kawah Mas yang eksotis, area camping Pondok Salada, hamparan bunga edelweiss di Tegal Alun, serta lanskap dramatis Hutan Mati.",
-            image: "images/galeri-14.jpg",
+            image: "images/galeri-19.jpg",
             waLink: "https://wa.me/628212240439?text=Halo%20Nalika%20Trip,%20saya%20mau%20register%20untuk%20Trip%20Gunung%20Papandayan",
             includes: ["Transportasi PP", "Tiket / Simaksi", "Rumah Singgah", "Makan 1x", "Minuman", "Dokumentasi", "P3K Standar", "Tour Guide"],
             excludes: ["Obat Pribadi", "Surat Sehat", "Peralatan Pribadi", "Baju Ganti", "Snack / Makanan Tambahan", "Minum Pribadi", "Jas Hujan"]
