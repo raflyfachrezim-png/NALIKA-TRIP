@@ -16,9 +16,9 @@ const NALIKA_DATABASE = {
 
     // Foto Galeri
     gallery: [
-        { image: "images/galeri-16.jpg" },
-        { image: "images/galeri-17.jpg" },
         { image: "images/galeri-18.jpg" },
+        { image: "images/galeri-17.jpg" },
+        { image: "images/galeri-16.jpg" },
         { image: "images/galeri-2.jpg" },
         { image: "images/galeri-3.jpg" },
         { image: "images/galeri-4.jpg" },
